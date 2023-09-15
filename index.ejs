@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+</head>
+<body>
+    <%-include('./partials/nav.ejs')%> 
+    <a href="/add">New Contact</a>
+    <div class="users">
+        <%if(contacts[0] == null){%>
+            Ain't got no friends
+        <%}else{%>
+            <%contacts.forEach(item => {%>
+                <div>
+                    <h3><%=item.name%></h3>
+                    <p>Email: <%=item.email%></p>
+                    <a href="/view/<%=item.id%>">View</a>
+                    <a href="/edit/<%=item.id%>">Edit</a>
+                    <a href="/delete/<%=item.id%>">Delete</a>
+                </div>
+            <%});%>
+        <%}%>
+    </div>
+</body>
+</html>
